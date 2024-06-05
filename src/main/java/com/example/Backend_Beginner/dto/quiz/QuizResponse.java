@@ -8,4 +8,12 @@ public class QuizResponse {
         this.correct = correct;
         this.message = message;
     }
+
+    public boolean isCorrect() {
+        return correct;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
