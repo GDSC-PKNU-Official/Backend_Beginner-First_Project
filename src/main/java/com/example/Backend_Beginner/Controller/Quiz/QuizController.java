@@ -1,10 +1,9 @@
 package com.example.Backend_Beginner.Controller.Quiz;
 
 import com.example.Backend_Beginner.domain.quiz.Quiz;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.Backend_Beginner.dto.quiz.QuizResponse;
+import com.example.Backend_Beginner.dto.quiz.QuizSubmission;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 
@@ -18,7 +17,14 @@ public class QuizController {
     }
 
     @GetMapping
-    public Quiz getQuiz(){
+    public Quiz getQuiz() {
         return quiz;
+    }
+    @PostMapping
+    public QuizResponse submitQuiz(@RequestBody QuizSubmission quizSubmission) {
+        boolean correct = quiz.getCorrectAnswer().equalsIgnoreCase(quizSubmission.getSelectedAnswer());
+        String message = correct ? "정답입니다!" : "틀렸지롱!";
+
+        return new QuizResponse(correct,message);
     }
 }
