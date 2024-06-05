@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+// 간단한 login을 다루는 Controller 입니다.
 @Controller
 public class LoginController {
     @GetMapping("/login")
