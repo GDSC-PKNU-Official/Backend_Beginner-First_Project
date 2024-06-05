@@ -5,9 +5,10 @@
     <title>Login Result</title>
 </head>
 <body>
-<h3>Hello User!</h3>
-<br><br>
+<h3 th:if="${name != null}" th:text="|안녕하세요! ${name}|" />
+<h3 th:unless="${name != null}" th:text="|안녕하세요! User!|" />
+<br>
 <div th:if="${loginId != null}" th:text="|로그인 아이디: ${loginId}|" />
-<div th:unless="${loginId != null}" th:text="|로그인 실패. 아이디, 비밀번호 재 확인해주세요.|"/>
+<div th:unless="${loginId != null}" th:text="|로그인 실패. 아이디, 비밀번호 다시 확인해주세요.|" />
 </body>
 </html>

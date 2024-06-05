@@ -17,10 +17,12 @@ public class LoginController {
     public String loginProcess(
             @RequestParam String id,
             @RequestParam String password,
+            @RequestParam String name,
             Model model
     ) {
         if(id.equals(password)) {
             model.addAttribute("loginId", id);
+            model.addAttribute("name", name);
         }
         return "login-result";
     }
